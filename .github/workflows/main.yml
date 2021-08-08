@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI_main
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          cmake .
+          cmake --build .
+          sudo make install
+      - run: |
+          cmake .
+          cmake --build .
+          cmake --build . --target test
+          cmake --build . --target package
+
