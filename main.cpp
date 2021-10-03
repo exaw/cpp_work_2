@@ -58,10 +58,18 @@ void demo_2_2 ()
 {
     cout << "=============== demo 2.2 ===============" << endl;
 
+
     std::map<int, int, less<int>, ta::basket_allocator<pair<const int, int>, 10>> m;
-    for (int i : {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11})
+    try
     {
-        m.insert ({i, fac (i)});
+        for (int i : {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11})
+        {
+            m.insert ({i, fac (i)});
+        }
+    }
+    catch ( std::exception& e )
+    {
+        cout<<"std exception: "<<e.what()<<endl;
     }
 
     for (const auto&[a, b] : m)
@@ -76,7 +84,7 @@ void demo_3 ()
 {
     cout << "=============== demo 3 ===============" << endl;
 
-    ta::assoc_list<string, double, std::allocator<pair<string, int>>> alist;
+    ta::assoc_list<string, int, std::allocator<pair<string, int>>> alist;
 
     for (string s : {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
     {
@@ -104,9 +112,9 @@ void demo_4 ()
 
     ta::assoc_list<string, double, ta::basket_allocator<pair<string, double>, 40>> alist;
 
-    for (string s : {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+    for (string s : {"0.1", "1.1", "2.1", "3.1", "4.1", "5.1", "6.1", "7.1", "8.1", "9.1"})
     {
-        alist.insert (s, stoi (s));
+        alist.insert (s, stod (s));
     }
 
     for (auto it = alist.begin (); it != alist.end (); it++)
@@ -115,7 +123,7 @@ void demo_4 ()
     }
     cout << endl;
 
-    for (string s : {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+    for (string s : {"0.1", "1.1", "2.1", "3.1", "4.1", "5.1", "6.1", "7.1", "8.1", "9.1"})
     {
         cout << s << ": " << alist[s] << "    ";
     }

@@ -108,7 +108,6 @@ namespace ta
 
         void insert (const Key &key, const T &value)
         {
-
             for (auto it = begin (); it != end (); it++)
             {
                 if (it->first == key)

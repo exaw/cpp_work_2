@@ -1,11 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project ( SR2 VERSION 1 )
+project ( SR2 VERSION 2 )
 set ( CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install )
 enable_testing()
-
-
-
 
 add_executable(basket_allocator_sample
         basket_allocator.h
