@@ -41,5 +41,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./SR2-1-Linux.deb
-          asset_name: SR2-1-Linux.deb
+          asset_name: SR2-2-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
